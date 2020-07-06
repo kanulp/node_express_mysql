@@ -10,7 +10,7 @@ const Corona_cases = function(Corona_cases) {
 };
 
 Corona_cases.create = (newCorona_case, result) => {
-    sql.query("INSERT INTO corona_cases SET ?", newCorona_case, (err, res) => {
+    sql.query("INSERT INTO Corona_cases SET ?", newCorona_case, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
