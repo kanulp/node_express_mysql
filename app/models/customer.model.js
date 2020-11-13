@@ -2,7 +2,7 @@ const sql = require("./db.js");
 
 // constructor
 const Corona_cases = function(Corona_cases) {
-    this.id = Corona_cases.id;
+    //this.id = Corona_cases.id;
     this.name = Corona_cases.name;
     this.email = Corona_cases.email;
     this.positive = Corona_cases.positive;

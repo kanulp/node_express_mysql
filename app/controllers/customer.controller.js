@@ -9,7 +9,6 @@ exports.create = (req, res) => {
         });
     }
 
-    // Create a Customer
     const customer = new Customer({
         name: req.body.name,
         email: req.body.email,
@@ -17,7 +16,6 @@ exports.create = (req, res) => {
         address: req.body.address
     });
 
-    // Save Customer in the database
     Customer.create(customer, (err, data) => {
         if (err)
             res.status(500).send({
@@ -40,15 +38,15 @@ exports.findAll = (req, res) => {
 
 // Find a single Customer with a customerId
 exports.findOne = (req, res) => {
-    Customer.findById(req.params.customerId, (err, data) => {
+    Customer.findById(req.params.caseId, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {
                 res.status(404).send({
-                    message: `Not found Customer with id ${req.params.customerId}.`
+                    message: `Not found Customer with id ${req.params.caseId}.`
                 });
             } else {
                 res.status(500).send({
-                    message: "Error retrieving Customer with id " + req.params.customerId
+                    message: "Error retrieving Customer with id " + req.params.caseId
                 });
             }
         } else res.send(data);
